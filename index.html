@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id=G-4CWZNMC5C7';
+      f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','G-4CWZNMC5C7');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tank Doc - Expert Aquarium & Pond Care</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      /* Define brand colors as CSS variables */
+      :root {
+        --brand-primary-blue: #19458f; /* Darker blue */
+        --brand-secondary-blue: #106894; /* Lighter blue/teal */
+        --brand-white: #ffffff;
+        --brand-orange: #faa123; /* Accent orange */
+        --brand-light-blue-bg: #e0f2f7; /* Very light blue for backgrounds */
+        --brand-lighter-blue-bg: #f0f8ff; /* Even lighter blue, almost white */
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        color: #374151; /* Default gray-800 */
+        background-image: linear-gradient(
+          to bottom right,
+          var(--brand-lighter-blue-bg),
+          var(--brand-light-blue-bg)
+        );
+        min-height: 100vh;
+      }
+
+      /* Apply hover color for navigation links */
+      .nav-link:hover {
+        color: var(--brand-primary-blue);
+      }
+
+      /* Apply focus ring color for form inputs */
+      .form-input-focus:focus {
+        --tw-ring-color: var(--brand-secondary-blue);
+      }
+
+      /* Apply radio button color */
+      .form-radio-color {
+        accent-color: var(
+          --brand-primary-blue
+        ); /* For native radio button color */
+      }
+
+      /* Specific styling for Lucide icons within the HTML structure */
+      .icon-primary-blue {
+        color: var(--brand-primary-blue);
+      }
+      .icon-secondary-blue {
+        color: var(--brand-secondary-blue);
+      }
+      .icon-orange {
+        color: var(--brand-orange);
+      }
+
+      /* Hide pages by default, show only active one */
+      .page-content {
+        display: none;
+      }
+      .page-content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main content container for home page -->
+    <div id="home-page" class="page-content active">
+      <!-- Header -->
+      <header
+        class="bg-white shadow-sm py-4 px-6 md:px-12 sticky top-0 z-50 rounded-b-lg"
+      >
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <!-- Logo Image - Using a placeholder for reliable preview -->
+            <img
+              src="https://raw.githubusercontent.com/TankDoc-hash/Firstsite/main/assets/Tankdoc_Logo.jpeg"
+              alt="Tank Doc Logo"
+              class="h-10 w-auto object-contain"
+            />
+            <h1
+              class="text-3xl font-bold"
+              style="color: var(--brand-primary-blue)"
+            >
+              TANK DOC
+            </h1>
+          </div>
+          <nav class="hidden md:flex space-x-6">
+            <a
+              href="#about"
+              class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              >About Us</a
+            >
+            <a
+              href="#why-choose"
+              class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              >Why Choose Us</a
+            >
+            <a
+              href="#services"
+              class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              >Services</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              >Contact</a
+            >
+            <button
+              id="privacy-policy-btn-header"
+              class="text-gray-600 nav-link font-medium transition-colors duration-200"
+            >
+              Privacy Policy
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section
+        class="relative text-white py-20 md:py-32 overflow-hidden rounded-b-xl shadow-lg"
+        style="background-color: var(--brand-primary-blue)"
+      >
+        <div
+          class="absolute inset-0 opacity-20 bg-cover bg-center"
+          style="
+            background-image: url('https://raw.githubusercontent.com/TankDoc-hash/Firstsite/main/assets/banner.jpg');
+          "
+        ></div>
+        <div class="relative max-w-7xl mx-auto px-6 md:px-12 text-center z-10">
+          <h2
+            class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg"
+          >
+            Your Fish Tank Deserves a Doctor
+          </h2>
+          <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
+            Routine care, emergency cleanups, and deep cleaning - Tank Doc keeps
+            your tank thriving, inside and out.
+          </p>
+          <a
+            href="#lead-form"
+            class="inline-block px-8 py-4 rounded-full text-lg font-semibold shadow-xl transition-all duration-300 transform hover:scale-105"
+            style="
+              background-color: var(--brand-white);
+              color: var(--brand-primary-blue);
+            "
+          >
+            Get a Free Quote Today!
+          </a>
+        </div>
+      </section>
+
+      <!-- About Our Company Section -->
+      <section
+        id="about"
+        class="py-16 md:py-24 bg-white rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-7xl px-6 md:px-12"
+      >
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">
+              About Our Company
+            </h3>
+            <p class="text-lg leading-relaxed text-gray-700 mb-4">
+              At Tank Doc, established in 2025, we believe a clean tank is a
+              happy ecosystem. With an eye for detail and deep respect for
+              aquatic life, we provide reliable, gentle cleaning services
+              tailored for every kind of tank and pond, from home hobbyists to
+              small businesses.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700">
+              Our passionate team is dedicated to creating and maintaining
+              balanced, thriving aquatic environments for your fish and plants.
+            </p>
+          </div>
+          <div class="flex justify-center items-center">
+            <img
+              src="https://raw.githubusercontent.com/TankDoc-hash/Firstsite/main/assets/about-aqua.jpg"
+              alt="Aquascape Detailing"
+              class="rounded-xl shadow-lg w-full h-auto object-cover max-h-96"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x400/a8dadc/1d3557?text=Image+Not+Available';"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Tank Doc Section -->
+      <section
+        id="why-choose"
+        class="py-16 md:py-24 rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-7xl px-6 md:px-12"
+        style="background-color: var(--brand-light-blue-bg)"
+      >
+        <h3 class="text-4xl font-bold text-center text-gray-900 mb-12">
+          Why Choose Tank Doc?
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"
+          >
+            <div class="flex-shrink-0">
+              <i
+                data-lucide="check-circle"
+                class="icon-orange"
+                data-lucide-size="32"
+              ></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                Passionate Team
+              </h4>
+              <p class="text-gray-700">
+                Our experts are genuinely passionate about aquatic life and
+                dedicated to exceptional care.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"
+          >
+            <div class="flex-shrink-0">
+              <i
+                data-lucide="check-circle"
+                class="icon-orange"
+                data-lucide-size="32"
+              ></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                Flexible Scheduling
+              </h4>
+              <p class="text-gray-700">
+                We work around your schedule to provide convenient and timely
+                service.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"
+          >
+            <div class="flex-shrink-0">
+              <i
+                data-lucide="check-circle"
+                class="icon-orange"
+                data-lucide-size="32"
+              ></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                Safe for Fish & Plants
+              </h4>
+              <p class="text-gray-700">
+                We use eco-conscious methods that are completely safe for your
+                aquatic inhabitants.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"
+          >
+            <div class="flex-shrink-0">
+              <i
+                data-lucide="check-circle"
+                class="icon-orange"
+                data-lucide-size="32"
+              ></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                Eco-conscious Methods
+              </h4>
+              <p class="text-gray-700">
+                Committed to environmentally friendly practices for a healthier
+                planet and tank.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"
+          >
+            <div class="flex-shrink-0">
+              <i
+                data-lucide="check-circle"
+                class="icon-orange"
+                data-lucide-size="32"
+              ></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                Custom Care Plans
+              </h4>
+              <p class="text-gray-700">
+                Tailored solutions designed to meet the unique needs of your
+                aquarium or pond.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"
+          >
+            <div class="flex-shrink-0">
+              <i
+                data-lucide="check-circle"
+                class="icon-orange"
+                data-lucide-size="32"
+              ></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                Expert Consultations
+              </h4>
+              <p class="text-gray-700">
+                Benefit from our deep knowledge and receive personalized advice
+                for your aquatic setup.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Services Section -->
+      <section
+        id="services"
+        class="py-16 md:py-24 bg-white rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-7xl px-6 md:px-12"
+      >
+        <h3 class="text-4xl font-bold text-center text-gray-900 mb-12">
+          Our Services
+        </h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Scheduled Tank Cleaning -->
+          <div
+            class="p-8 rounded-lg shadow-md"
+            style="background-color: var(--brand-light-blue-bg)"
+          >
+            <div class="flex items-center space-x-4 mb-4">
+              <i
+                data-lucide="droplets"
+                class="icon-secondary-blue"
+                data-lucide-size="40"
+              ></i>
+              <h4 class="text-2xl font-bold text-gray-900">
+                Scheduled Tank Cleaning
+              </h4>
+            </div>
+            <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+              <li>
+                Regularly scheduled tank cleaning to maintain pristine
+                conditions.
+              </li>
+              <li>
+                Thorough algae & residue removal from glass, decorations, and
+                substrate.
+              </li>
+              <li>
+                Aquascape detailing to keep your underwater landscape looking
+                its best.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Water Quality Management -->
+          <div
+            class="p-8 rounded-lg shadow-md"
+            style="background-color: var(--brand-light-blue-bg)"
+          >
+            <div class="flex items-center space-x-4 mb-4">
+              <i
+                data-lucide="wrench"
+                class="icon-secondary-blue"
+                data-lucide-size="40"
+              ></i>
+              <h4 class="text-2xl font-bold text-gray-900">
+                Water Quality Management
+              </h4>
+            </div>
+            <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+              <li>
+                Comprehensive water health checks, including pH, ammonia,
+                nitrite, and nitrate testing.
+              </li>
+              <li>
+                Precise water changes and treatment to ensure optimal water
+                parameters.
+              </li>
+              <li>
+                Equipment maintenance and inspection (filters, heaters, pumps)
+                for peak performance.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Additional Services -->
+          <div
+            class="p-8 rounded-lg shadow-md lg:col-span-2"
+            style="background-color: var(--brand-light-blue-bg)"
+          >
+            <div class="flex items-center space-x-4 mb-4">
+              <i
+                data-lucide="search"
+                class="icon-secondary-blue"
+                data-lucide-size="40"
+              ></i>
+              <h4 class="text-2xl font-bold text-gray-900">
+                Additional Services
+              </h4>
+            </div>
+            <ul
+              class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg text-gray-700"
+            >
+              <li>
+                <i
+                  data-lucide="check-circle"
+                  class="inline-block icon-orange mr-2"
+                  data-lucide-size="20"
+                ></i
+                >On-call cleanups for unexpected emergencies.
+              </li>
+              <li>
+                <i
+                  data-lucide="check-circle"
+                  class="inline-block icon-orange mr-2"
+                  data-lucide-size="20"
+                ></i
+                >Expert Consultations for design, troubleshooting, and livestock
+                selection.
+              </li>
+              <li>
+                <i
+                  data-lucide="check-circle"
+                  class="inline-block icon-orange mr-2"
+                  data-lucide-size="20"
+                ></i
+                >Fish & Plant Health diagnosis and treatment.
+              </li>
+              <li>
+                <i
+                  data-lucide="check-circle"
+                  class="inline-block icon-orange mr-2"
+                  data-lucide-size="20"
+                ></i
+                >Aquarium Relocation Services for safe and stress-free moves.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lead Form Section -->
+      <section
+        id="lead-form"
+        class="py-16 md:py-24 text-white rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-7xl px-6 md:px-12"
+        style="
+          background-image:
+            linear-gradient(rgba(25, 69, 143, 0.85), rgba(16, 104, 148, 0.85)),
+            url('https://raw.githubusercontent.com/TankDoc-hash/Firstsite/main/assets/quote-bg.jpg');
+        "
+      >
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-4xl font-bold text-center mb-10">
+            Get a Free Quote from Tank Doc!
+          </h3>
+          <p class="text-center text-lg mb-8 opacity-90">
+            Ready to give your aquarium or pond the expert care it deserves?
+            Fill out the form below to get a free, no-obligation quote tailored
+            to your specific needs.
+          </p>
+
+          <form
+            id="lead-form-element"
+            class="bg-white p-8 rounded-lg shadow-xl text-gray-800"
+          >
+            <fieldset class="border border-gray-300 p-6 rounded-md mb-8">
+              <legend
+                class="text-xl font-semibold px-2"
+                style="color: var(--brand-primary-blue)"
+              >
+                Your Contact Information
+              </legend>
+              <div class="mb-4">
+                <label
+                  for="fullName"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  >Full Name:</label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  required
+                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="emailAddress"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  >Email Address:</label
+                >
+                <input
+                  type="email"
+                  id="emailAddress"
+                  name="emailAddress"
+                  required
+                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="phoneNumber"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  >Phone Number:</label
+                >
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="+91-8431319215"
+                  pattern="[0-9]{10}"
+                  title="Please enter a 10-digit phone number"
+                  required
+                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+                />
+              </div>
+            </fieldset>
+
+            <fieldset class="border border-gray-300 p-6 rounded-md mb-8">
+              <legend
+                class="text-xl font-semibold px-2"
+                style="color: var(--brand-primary-blue)"
+              >
+                About Your Aquarium/Pond
+              </legend>
+              <div class="mb-4">
+                <label
+                  for="serviceType"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  >What type of service are you interested in?</label
+                >
+                <select
+                  id="serviceType"
+                  name="serviceType"
+                  required
+                  class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+                >
+                  <option value="">-- Please Select --</option>
+                  <option value="aquarium_design">
+                    Aquarium Design & Setup
+                  </option>
+                  <option value="routine_maintenance">
+                    Regular Maintenance & Cleaning
+                  </option>
+                  <option value="fish_plant_health">Fish & Plant Health</option>
+                  <option value="troubleshooting">
+                    Aquascaping
+                  </option>
+                  <option value="pond_care">Pond Cleaning/Maintenance</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2"
+                  >Is this for an aquarium or a pond?</label
+                >
+                <div class="flex space-x-4">
+                  <label class="inline-flex items-center">
+                    <input
+                      type="radio"
+                      id="aquarium"
+                      name="habitatType"
+                      value="aquarium"
+                      required
+                      class="form-radio h-5 w-5 form-radio-color"
+                    />
+                    <span class="ml-2 text-gray-700">Aquarium</span>
+                  </label>
+                  <label class="inline-flex items-center">
+                    <input
+                      type="radio"
+                      id="pond"
+                      name="habitatType"
+                      value="pond"
+                      class="form-radio h-5 w-5 form-radio-color"
+                    />
+                    <span class="ml-2 text-gray-700">Pond</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label
+                  for="tankSize"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  >Approximate size of your tank/pond (in gallons or
+                  liters):</label
+                >
+                <input
+                  type="text"
+                  id="tankSize"
+                  name="tankSize"
+                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="currentIssues"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  >Are you experiencing any specific issues or concerns? (e.g.,
+                  algae, cloudy water, sick fish)</label
+                >
+                <textarea
+                  id="currentIssues"
+                  name="currentIssues"
+                  rows="4"
+                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+                ></textarea>
+              </div>
+              <div class="mb-4">
+                <label
+                  for="preferredTime"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  >When would be a good time to contact you?</label
+                >
+                <input
+                  type="text"
+                  id="preferredTime"
+                  name="preferredTime"
+                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+                />
+              </div>
+            </fieldset>
+
+            <fieldset class="border border-gray-300 p-6 rounded-md mb-8">
+              <legend
+                class="text-xl font-semibold px-2"
+                style="color: var(--brand-primary-blue)"
+              >
+                How Did You Hear About Us?
+              </legend>
+              <select
+                id="howHear"
+                name="howHear"
+                class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:ring-2 form-input-focus focus:border-transparent"
+              >
+                <option value="">-- Please Select --</option>
+                <option value="search_engine">
+                  Search Engine (Google, Bing, etc.)
+                </option>
+                <option value="social_media">Social Media</option>
+                <option value="referral">Referral</option>
+                <option value="flyer_advert">Flyer/Advertisement</option>
+                <option value="other">Other</option>
+              </select>
+            </fieldset>
+
+            <button
+              type="submit"
+              class="w-full text-white font-bold py-4 px-6 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              style="
+                background-color: var(--brand-primary-blue);
+                --tw-ring-color: var(--brand-secondary-blue);
+                --tw-ring-offset-color: var(--brand-white);
+              "
+            >
+              Submit for Free Quote
+            </button>
+            <p id="form-message" class="mt-4 text-lg font-medium hidden"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- Contact Information Section -->
+      <section
+        id="contact"
+        class="py-16 md:py-24 bg-white rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-7xl px-6 md:px-12 text-center"
+      >
+        <h3 class="text-4xl font-bold text-gray-900 mb-8">Contact Us Today!</h3>
+        <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+          Elevate your client experience & boost revenue with expert aquarium &
+          pond care.
+        </p>
+        <div
+          class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12"
+        >
+          <div class="flex items-center space-x-3">
+            <i
+              data-lucide="phone"
+              class="icon-primary-blue"
+              data-lucide-size="24"
+            ></i>
+            <a
+              href="tel:+918431319215"
+              class="text-xl font-semibold hover:underline"
+              style="color: var(--brand-primary-blue)"
+              >+91-8431319215</a
+            >
+          </div>
+          <div class="flex items-center space-x-3">
+            <i
+              data-lucide="mail"
+              class="icon-primary-blue"
+              data-lucide-size="24"
+            ></i>
+            <a
+              href="mailto:tankdoc25@gmail.com"
+              class="text-xl font-semibold hover:underline"
+              style="color: var(--brand-primary-blue)"
+              >tankdoc25@gmail.com</a
+            >
+          </div>
+          <div class="flex items-center space-x-3">
+            <i
+              data-lucide="map-pin"
+              class="icon-primary-blue"
+              data-lucide-size="24"
+            ></i>
+            <span class="text-gray-700 text-xl font-semibold"
+              >Bengaluru, India</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-white py-10 mt-8 rounded-t-lg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
+          <div class="flex justify-center space-x-6 mb-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              <i data-lucide="facebook" data-lucide-size="28"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              <i data-lucide="instagram" data-lucide-size="28"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              <i data-lucide="youtube" data-lucide-size="28"></i>
+            </a>
+          </div>
+          <p class="text-gray-400 text-sm">
+            &copy; <span id="current-year"></span> TANK DOC. All rights
+            reserved.
+          </p>
+          <button
+            id="privacy-policy-btn-footer"
+            class="text-gray-400 text-sm mt-2 hover:underline"
+          >
+            Privacy Policy
+          </button>
+          <p class="text-gray-500 text-xs mt-2">
+            Creating Thriving Underwater Worlds
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Privacy Policy Page Content -->
+    <div id="privacy-page" class="page-content">
+      <div
+        class="max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-lg my-8 text-gray-800"
+      >
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-8">
+          Privacy Policy
+        </h2>
+        <p class="mb-4 text-gray-700">
+          At Tank Doc, accessible from [Your Website URL], one of our main
+          priorities is the privacy of our visitors. This Privacy Policy
+          document contains types of information that is collected and recorded
+          by Tank Doc and how we use it.
+        </p>
+        <p class="mb-4 text-gray-700">
+          If you have additional questions or require more information about our
+          Privacy Policy, do not hesitate to contact us.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          Information We Collect
+        </h3>
+        <p class="mb-4 text-gray-700">
+          The personal information that you are asked to provide, and the
+          reasons why you are asked to provide it, will be made clear to you at
+          the point we ask you to provide your personal information.
+        </p>
+        <p class="mb-4 text-gray-700">
+          If you contact us directly, we may receive additional information
+          about you such as your name, email address, phone number, the contents
+          of the message and/or attachments you may send us, and any other
+          information you may choose to provide.
+        </p>
+        <p class="mb-4 text-gray-700">
+          When you register for an Account, we may ask for your contact
+          information, including items such as name, company name, address,
+          email address, and telephone number.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          How We Use Your Information
+        </h3>
+        <p class="mb-4 text-gray-700">
+          We use the information we collect in various ways, including to:
+        </p>
+        <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+          <li>Provide, operate, and maintain our website</li>
+          <li>Improve, personalize, and expand our website</li>
+          <li>Understand and analyze how you use our website</li>
+          <li>Develop new products, services, features, and functionality</li>
+          <li>
+            Communicate with you, either directly or through one of our
+            partners, including for customer service, to provide you with
+            updates and other information relating to the website, and for
+            marketing and promotional purposes
+          </li>
+          <li>Send you emails</li>
+          <li>Find and prevent fraud</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          Log Files
+        </h3>
+        <p class="mb-4 text-gray-700">
+          Tank Doc follows a standard procedure of using log files. These files
+          log visitors when they visit websites. All hosting companies do this
+          and a part of hosting services' analytics. The information collected
+          by log files include internet protocol (IP) addresses, browser type,
+          Internet Service Provider (ISP), date and time stamp, referring/exit
+          pages, and possibly the number of the clicks. These are not linked to
+          any information that is personally identifiable. The purpose of the
+          information is for analyzing trends, administering the site, tracking
+          users' movement on the website, and gathering demographic information.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          Cookies and Web Beacons
+        </h3>
+        <p class="mb-4 text-gray-700">
+          Like any other website, Tank Doc uses 'cookies'. These cookies are
+          used to store information including visitors' preferences, and the
+          pages on the website that the visitor accessed or visited. The
+          information is used to optimize the users' experience by customizing
+          our web page content based on visitors' browser type and/or other
+          information.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          Third-Party Privacy Policies
+        </h3>
+        <p class="mb-4 text-gray-700">
+          Tank Doc's Privacy Policy does not apply to other advertisers or
+          websites. Thus, we are advising you to consult the respective Privacy
+          Policies of these third-party ad servers for more detailed
+          information. It may include their practices and instructions about how
+          to opt-out of certain options.
+        </p>
+        <p class="mb-4 text-gray-700">
+          You can choose to disable cookies through your individual browser
+          options. To know more detailed information about cookie management
+          with specific web browsers, it can be found at the browsers'
+          respective websites.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          CCPA Privacy Rights (Do Not Sell My Personal Information)
+        </h3>
+        <p class="mb-4 text-gray-700">
+          Under the CCPA, among other rights, California consumers have the
+          right to:
+        </p>
+        <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+          <li>
+            Request that a business that collects a consumer's personal data
+            disclose the categories and specific pieces of personal data that a
+            business has collected about consumers.
+          </li>
+          <li>
+            Request that a business delete any personal data about the consumer
+            that a business has collected.
+          </li>
+          <li>
+            Request that a business that sells a consumer's personal data, not
+            sell the consumer's personal data.
+          </li>
+        </ul>
+        <p class="mb-4 text-gray-700">
+          If you make a request, we have one month to respond to you. If you
+          would like to exercise any of these rights, please contact us.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          GDPR Data Protection Rights
+        </h3>
+        <p class="mb-4 text-gray-700">
+          We would like to make sure you are fully aware of all of your data
+          protection rights. Every user is entitled to the following:
+        </p>
+        <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+          <li>
+            The right to access – You have the right to request copies of your
+            personal data. We may charge you a small fee for this service.
+          </li>
+          <li>
+            The right to rectification – You have the right to request that we
+            correct any information you believe is inaccurate. You also have the
+            right to request that we complete the information you believe is
+            incomplete.
+          </li>
+          <li>
+            The right to erasure – You have the right to request that we erase
+            your personal data, under certain conditions.
+          </li>
+          <li>
+            The right to restrict processing – You have the right to request
+            that we restrict the processing of your personal data, under certain
+            conditions.
+          </li>
+          <li>
+            The right to object to processing – You have the right to object to
+            our processing of your personal data, under certain conditions.
+          </li>
+          <li>
+            The right to data portability – You have the right to request that
+            we transfer the data that we have collected to another organization,
+            or directly to you, under certain conditions.
+          </li>
+        </ul>
+        <p class="mb-4 text-gray-700">
+          If you make a request, we have one month to respond to you. If you
+          would like to exercise any of these rights, please contact us.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+          Children's Information
+        </h3>
+        <p class="mb-4 text-gray-700">
+          Another part of our priority is adding protection for children while
+          using the internet. We encourage parents and guardians to observe,
+          participate in, and/or monitor and guide their online activity.
+        </p>
+        <p class="mb-4 text-gray-700">
+          Tank Doc does not knowingly collect any Personal Identifiable
+          Information from children under the age of 13. If you think that your
+          child provided this kind of information on our website, we strongly
+          encourage you to contact us immediately and we will do our best
+          efforts to promptly remove such information from our records.
+        </p>
+        <button
+          id="back-to-home-btn"
+          class="mt-8 bg-gray-200 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-md"
+        >
+          Back to Home
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Update footer year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Page navigation handlers
+        const homePage = document.getElementById('home-page');
+        const privacyPage = document.getElementById('privacy-page');
+        const privacyBtnHeader = document.getElementById('privacy-policy-btn-header');
+        const privacyBtnFooter = document.getElementById('privacy-policy-btn-footer');
+        const backToHomeBtn = document.getElementById('back-to-home-btn');
+
+        function showPage(pageId) {
+          homePage.classList.remove('active');
+          privacyPage.classList.remove('active');
+          document.getElementById(pageId).classList.add('active');
+          window.scrollTo(0, 0);
+        }
+
+        if (privacyBtnHeader) {
+          privacyBtnHeader.addEventListener('click', () => showPage('privacy-page'));
+        }
+        if (privacyBtnFooter) {
+          privacyBtnFooter.addEventListener('click', () => showPage('privacy-page'));
+        }
+        if (backToHomeBtn) {
+          backToHomeBtn.addEventListener('click', () => showPage('home-page'));
+        }
+
+        // Lead form submission handler
+        const leadForm = document.getElementById('lead-form-element');
+        const messageBox = document.getElementById('form-message');
+
+        if (leadForm) {
+          leadForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = {
+              fullName: this.elements['fullName'].value,
+              emailAddress: this.elements['emailAddress'].value,
+              phoneNumber: this.elements['phoneNumber'].value,
+              serviceType: this.elements['serviceType'].value,
+              habitatType: this.elements['habitatType'].value,
+              tankSize: this.elements['tankSize'].value,
+              currentIssues: this.elements['currentIssues'].value,
+              preferredTime: this.elements['preferredTime'].value,
+              howHear: this.elements['howHear'].value,
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbyqT-K2aw8EYuJk97OVWMDqE4qUP5L7lhUgs_0VT3nmATHGOqH2Ex2N-U1vquRkxsFybw/exec', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+              .then(res => res.text())
+              .then(response => {
+                messageBox.textContent = '✅ Thank you! We’ll contact you shortly.';
+                messageBox.classList.remove('hidden');
+                messageBox.classList.remove('text-red-600');
+                messageBox.classList.add('text-green-600');
+                leadForm.reset();
+              })
+              .catch(err => {
+                messageBox.textContent = '⚠️ Something went wrong. Please try again.';
+                messageBox.classList.remove('hidden');
+                messageBox.classList.remove('text-green-600');
+                messageBox.classList.add('text-red-600');
+                console.error(err);
+              });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
