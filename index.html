@@ -1027,11 +1027,13 @@
               howHear: this.elements['howHear'].value,
             };
 
+            const encodedData = new URLSearchParams(formData).toString();
+
             fetch('https://script.google.com/macros/s/AKfycbyqT-K2aw8EYuJk97OVWMDqE4qUP5L7lhUgs_0VT3nmATHGOqH2Ex2N-U1vquRkxsFybw/exec', {
               method: 'POST',
-              body: JSON.stringify(formData),
+              body: encodedData,
               headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
               },
             })
               .then(res => res.text())
