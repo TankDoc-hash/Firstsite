@@ -82,9 +82,23 @@
       .page-content.active {
         display: block;
       }
+
+      /* Mobile menu specific styles */
+      .mobile-menu {
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out;
+      }
+      .mobile-menu.open {
+        transform: translateX(0); /* Slide in */
+      }
     </style>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=G-4CWZNMC5C7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Main content container for home page -->
     <div id="home-page" class="page-content active">
       <!-- Header -->
@@ -93,7 +107,7 @@
       >
         <div class="max-w-7xl mx-auto flex justify-between items-center">
           <div class="flex items-center space-x-3">
-            <!-- Logo Image - Using a placeholder for reliable preview -->
+            <!-- Logo Image -->
             <img
               src="https://raw.githubusercontent.com/TankDoc-hash/Firstsite/main/assets/Tankdoc_Logo.jpeg"
               alt="Tank Doc Logo"
@@ -102,39 +116,104 @@
             <h1
               class="text-3xl font-bold"
               style="color: var(--brand-primary-blue)"
-            >  
+            >
+              Tank Doc
             </h1>
           </div>
+          <!-- Desktop Navigation -->
           <nav class="hidden md:flex space-x-6">
             <a
               href="#about"
               class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              onclick="showPage('home-page');"
               >About Us</a
             >
             <a
               href="#why-choose"
               class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              onclick="showPage('home-page');"
               >Why Choose Us</a
             >
             <a
               href="#services"
               class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              onclick="showPage('home-page');"
               >Services</a
             >
             <a
               href="#contact"
               class="text-gray-600 nav-link font-medium transition-colors duration-200"
+              onclick="showPage('home-page');"
               >Contact</a
             >
             <button
-              id="privacy-policy-btn-header"
+              id="blog-btn-header-desktop"
+              class="text-gray-600 nav-link font-medium transition-colors duration-200"
+            >
+              Blog
+            </button>
+            <button
+              id="privacy-policy-btn-header-desktop"
               class="text-gray-600 nav-link font-medium transition-colors duration-200"
             >
               Privacy Policy
             </button>
           </nav>
+          <!-- Hamburger Menu Icon (Mobile) -->
+          <button id="hamburger-menu-btn" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+            style="--tw-ring-color: var(--brand-primary-blue); --tw-ring-offset-color: var(--brand-white);">
+            <i data-lucide="menu" class="icon-primary-blue" data-lucide-size="32"></i>
+          </button>
         </div>
       </header>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu-overlay" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 flex flex-col p-6 md:hidden">
+        <div class="flex justify-end mb-8">
+          <button id="close-menu-btn" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+            style="--tw-ring-color: var(--brand-primary-blue); --tw-ring-offset-color: var(--brand-white);">
+            <i data-lucide="x" class="icon-primary-blue" data-lucide-size="32"></i>
+          </button>
+        </div>
+        <nav class="flex flex-col space-y-6">
+          <a
+            href="#about"
+            class="text-gray-800 text-xl nav-link font-medium transition-colors duration-200"
+            onclick="showPage('home-page'); closeMobileMenu();"
+            >About Us</a
+          >
+          <a
+            href="#why-choose"
+            class="text-gray-800 text-xl nav-link font-medium transition-colors duration-200"
+            onclick="showPage('home-page'); closeMobileMenu();"
+            >Why Choose Us</a
+          >
+          <a
+            href="#services"
+            class="text-gray-800 text-xl nav-link font-medium transition-colors duration-200"
+            onclick="showPage('home-page'); closeMobileMenu();"
+            >Services</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 text-xl nav-link font-medium transition-colors duration-200"
+            onclick="showPage('home-page'); closeMobileMenu();"
+            >Contact</a
+          >
+          <button
+            id="blog-btn-mobile"
+            class="text-gray-800 text-xl nav-link font-medium transition-colors duration-200 text-left"
+          >
+            Blog
+          </button>
+          <button
+            id="privacy-policy-btn-mobile"
+            class="text-gray-800 text-xl nav-link font-medium transition-colors duration-200 text-left"
+          >
+            Privacy Policy
+          </button>
+        </nav>
+      </div>
 
       <!-- Hero Section -->
       <section
@@ -430,16 +509,14 @@
                   data-lucide="check-circle"
                   class="inline-block icon-orange mr-2"
                   data-lucide-size="20"
-                ></i
-                >On-call cleanups for unexpected emergencies.
+                ></i>On-call cleanups for unexpected emergencies.
               </li>
               <li>
                 <i
                   data-lucide="check-circle"
                   class="inline-block icon-orange mr-2"
                   data-lucide-size="20"
-                ></i
-                >Expert Consultations for design, troubleshooting, and livestock
+                ></i>Expert Consultations for design, troubleshooting, and livestock
                 selection.
               </li>
               <li>
@@ -447,16 +524,14 @@
                   data-lucide="check-circle"
                   class="inline-block icon-orange mr-2"
                   data-lucide-size="20"
-                ></i
-                >Fish & Plant Health diagnosis and treatment.
+                ></i>Fish & Plant Health diagnosis and treatment.
               </li>
               <li>
                 <i
                   data-lucide="check-circle"
                   class="inline-block icon-orange mr-2"
                   data-lucide-size="20"
-                ></i
-                >Aquarium Relocation Services for safe and stress-free moves.
+                ></i>Aquarium Relocation Services for safe and stress-free moves.
               </li>
             </ul>
           </div>
@@ -741,32 +816,19 @@
       <footer class="bg-gray-800 text-white py-10 mt-8 rounded-t-lg">
         <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <div class="flex justify-center space-x-6 mb-6">
-           <!-- <a
-              href="#"
-              class="text-gray-400 hover:text-white transition-colors duration-200"
-            >
-              <i data-lucide="facebook" data-lucide-size="28"></i>
-            </a> -->
             <a
               href="https://www.instagram.com/tank_doc?igsh=MW9zMmUwczB3cmlxcw=="
               class="text-gray-400 hover:text-white transition-colors duration-200"
             >
               <i data-lucide="instagram" data-lucide-size="28"></i>
             </a>
-
-           <!-- <a
-              href="#"
-              class="text-gray-400 hover:text-white transition-colors duration-200"
-            >
-              <i data-lucide="youtube" data-lucide-size="28"></i>
-            </a> -->
           </div>
           <p class="text-gray-400 text-sm">
-            &copy; <span id="current-year"></span> TANK DOC. All rights
+            &copy; <span id="current-year-home"></span> TANK DOC. All rights
             reserved.
           </p>
           <button
-            id="privacy-policy-btn-footer"
+            id="privacy-policy-btn-footer-home"
             class="text-gray-400 text-sm mt-2 hover:underline"
           >
             Privacy Policy
@@ -967,10 +1029,423 @@
           efforts to promptly remove such information from our records.
         </p>
         <button
-          id="back-to-home-btn"
+          id="back-to-home-btn-privacy"
           class="mt-8 bg-gray-200 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-md"
         >
           Back to Home
+        </button>
+      </div>
+    </div>
+
+    <!-- Blog Page Content -->
+    <div id="blog-page" class="page-content">
+      <div
+        class="max-w-7xl mx-auto p-8 bg-white rounded-xl shadow-lg my-8 text-gray-800"
+      >
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">
+          Tank Doc Blog: Insights & Tips
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Blog Post 1 -->
+          <article class="bg-gray-50 p-6 rounded-lg shadow-md" data-post-id="blog-post-1">
+            <!-- Conceptual Meta Tags for this specific blog post -->
+            <!--
+            <meta name="title" content="The Secret to Crystal Clear Aquarium Water" />
+            <meta name="description" content="Discover expert tips and tricks to maintain pristine water quality in your aquarium, ensuring a healthy environment for your fish." />
+            -->
+            <img
+              src="https://placehold.co/600x350/87CEEB/FFFFFF?text=Crystal+Clear+Water"
+              alt="Crystal Clear Aquarium Water"
+              class="w-full h-48 object-cover rounded-md mb-4"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x350/a8dadc/1d3557?text=Image+Not+Available';"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              The Secret to Crystal Clear Aquarium Water
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> July 10, 2025 |
+              <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+            </p>
+            <p class="text-gray-700 mb-4">
+              Achieving crystal clear water in your aquarium is not just about aesthetics; it's crucial for the health of your aquatic inhabitants. Learn about filtration, water changes, and common pitfalls to avoid...
+            </p>
+            <a
+              href="#"
+              class="read-more-link text-blue-600 hover:underline font-semibold"
+              >Read More <i data-lucide="arrow-right" class="inline-block ml-1" data-lucide-size="16"></i></a
+            >
+          </article>
+
+          <!-- Blog Post 2 -->
+          <article class="bg-gray-50 p-6 rounded-lg shadow-md" data-post-id="blog-post-2">
+            <!-- Conceptual Meta Tags for this specific blog post -->
+            <!--
+            <meta name="title" content="Top 5 Low-Maintenance Fish for Beginners" />
+            <meta name="description" content="Starting your first aquarium? Discover five resilient and beautiful fish species perfect for beginners, along with essential care tips." />
+            -->
+            <img
+              src="https://placehold.co/600x350/90EE90/FFFFFF?text=Beginner+Fish"
+              alt="Beginner Friendly Fish"
+              class="w-full h-48 object-cover rounded-md mb-4"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x350/a8dadc/1d3557?text=Image+Not+Available';"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Top 5 Low-Maintenance Fish for Beginners
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> July 5, 2025 |
+              <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+            </p>
+            <p class="text-gray-700 mb-4">
+              Embarking on your aquarium journey? Choosing the right fish is key. We've compiled a list of the top 5 hardy and beautiful fish species that are ideal for new hobbyists...
+            </p>
+            <a
+              href="#"
+              class="read-more-link text-blue-600 hover:underline font-semibold"
+              >Read More <i data-lucide="arrow-right" class="inline-block ml-1" data-lucide-size="16"></i></a
+            >
+          </article>
+
+          <!-- Blog Post 3 -->
+          <article class="bg-gray-50 p-6 rounded-lg shadow-md" data-post-id="blog-post-3">
+            <!-- Conceptual Meta Tags for this specific blog post -->
+            <!--
+            <meta name="title" content="Solving Common Pond Algae Problems" />
+            <meta name="description" content="Green water or string algae taking over your pond? Learn effective strategies and natural remedies to combat common algae issues." />
+            -->
+            <img
+              src="https://placehold.co/600x350/8B4513/FFFFFF?text=Pond+Algae"
+              alt="Pond Algae Problem"
+              class="w-full h-48 object-cover rounded-md mb-4"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x350/a8dadc/1d3557?text=Image+Not+Available';"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Solving Common Pond Algae Problems
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> June 28, 2025 |
+              <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+            </p>
+            <p class="text-gray-700 mb-4">
+              Algae can be a persistent nuisance in outdoor ponds. This guide covers the different types of pond algae and provides practical solutions for a clear and healthy pond...
+            </p>
+            <a
+              href="#"
+              class="read-more-link text-blue-600 hover:underline font-semibold"
+              >Read More <i data-lucide="arrow-right" class="inline-block ml-1" data-lucide-size="16"></i></a
+            >
+          </article>
+
+          <!-- Blog Post 4 -->
+          <article class="bg-gray-50 p-6 rounded-lg shadow-md" data-post-id="blog-post-4">
+            <!-- Conceptual Meta Tags for this specific blog post -->
+            <!--
+            <meta name="title" content="Aquascaping 101: Designing Your Underwater Paradise" />
+            <meta name="description" content="Unleash your creativity and learn the fundamentals of aquascaping to design stunning and natural-looking underwater landscapes for your aquarium." />
+            -->
+            <img
+              src="https://placehold.co/600x350/4682B4/FFFFFF?text=Aquascaping+Design"
+              alt="Aquascaping Design"
+              class="w-full h-48 object-cover rounded-md mb-4"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x350/a8dadc/1d3557?text=Image+Not+Available';"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Aquascaping 101: Designing Your Underwater Paradise
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> June 20, 2025 |
+              <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+            </p>
+            <p class="text-gray-700 mb-4">
+              Transform your aquarium into a breathtaking underwater landscape with aquascaping. This beginner's guide covers basic design principles, plant selection, and hardscape placement...
+            </p>
+            <a
+              href="#"
+              class="read-more-link text-blue-600 hover:underline font-semibold"
+              >Read More <i data-lucide="arrow-right" class="inline-block ml-1" data-lucide-size="16"></i></a
+            >
+          </article>
+        </div>
+
+        <button
+          id="back-to-home-btn-blog"
+          class="mt-12 bg-gray-200 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-md mx-auto block"
+        >
+          Back to Home
+        </button>
+      </div>
+    </div>
+
+    <!-- Blog Detail Page Content -->
+    <div id="blog-detail-page" class="page-content">
+      <div
+        class="max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-lg my-8 text-gray-800"
+      >
+        <!-- Content for Blog Post 1 -->
+        <div id="blog-post-1" class="blog-detail-content hidden">
+          <!-- Conceptual Meta Tags for this specific blog post -->
+          <!--
+          <meta name="title" content="The Secret to Crystal Clear Aquarium Water - Full Article" />
+          <meta name="description" content="Dive deep into the methods and best practices for maintaining crystal clear aquarium water, from advanced filtration to nutrient control." />
+          -->
+          <img
+            src="https://placehold.co/800x450/87CEEB/FFFFFF?text=Crystal+Clear+Water+Detail"
+            alt="Crystal Clear Aquarium Water Detail"
+            class="w-full h-64 object-cover rounded-md mb-6"
+            onerror="this.onerror=null;this.src='https://placehold.co/800x450/a8dadc/1d3557?text=Image+Not+Available';"
+          />
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            The Secret to Crystal Clear Aquarium Water
+          </h2>
+          <p class="text-sm text-gray-600 mb-6">
+            <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> July 10, 2025 |
+            <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+          </p>
+          <div class="prose max-w-none text-gray-700">
+            <p>
+              Achieving crystal clear water in your aquarium is often the hallmark of a healthy and well-maintained aquatic environment. It's not just about visual appeal; clear water indicates proper filtration, balanced nutrient levels, and happy inhabitants. Let's dive into the key elements that contribute to that sparkling clarity.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Understanding Water Clarity</h3>
+            <p>
+              Cloudy water can stem from various sources: bacterial blooms, algae, suspended particles, or even decaying organic matter. Identifying the cause is the first step towards a solution. Bacterial blooms often appear as a milky haze, while green water is a tell-tale sign of algae.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Filtration is Key</h3>
+            <p>
+              Your aquarium's filter is its life support system. Ensure you have adequate mechanical, chemical, and biological filtration.
+            </p>
+            <ul>
+              <li>**Mechanical Filtration:** Sponges, filter floss, or pads physically remove particles from the water. Regular cleaning or replacement of these media is crucial to prevent them from becoming a source of nitrates.</li>
+              <li>**Chemical Filtration:** Activated carbon is excellent for removing discoloration and odors, contributing significantly to water clarity. Other chemical media like Purigen can also be highly effective.</li>
+              <li>**Biological Filtration:** This is the most critical. Beneficial bacteria colonize porous surfaces (bio-rings, ceramic media, sponge filters) and convert harmful ammonia and nitrite into less toxic nitrate. A robust biological filter prevents bacterial blooms caused by excess waste.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Regular Water Changes</h3>
+            <p>
+              Partial water changes are non-negotiable. They dilute nitrates, replenish essential minerals, and remove dissolved organic compounds that can tint your water. Aim for 25-30% weekly water changes for most setups.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Avoid Overfeeding and Overstocking</h3>
+            <p>
+              Excess food decays and pollutes the water, leading to cloudy conditions. Feed sparingly, only what your fish can consume in a few minutes. Overstocking also contributes to a higher bioload, straining your filtration system.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Proper Lighting and Algae Control</h3>
+            <p>
+              Too much light can promote algae growth. Ensure your lights are on for a consistent period (8-10 hours is common) and consider using a timer. Introducing algae-eating inhabitants can also help.
+            </p>
+            <p>
+              By consistently applying these practices, you'll be well on your way to enjoying a beautiful, crystal clear aquarium that provides a healthy home for your aquatic friends.
+            </p>
+          </div>
+        </div>
+
+        <!-- Content for Blog Post 2 -->
+        <div id="blog-post-2" class="blog-detail-content hidden">
+          <!-- Conceptual Meta Tags for this specific blog post -->
+          <!--
+          <meta name="title" content="Top 5 Low-Maintenance Fish for Beginners - Full Article" />
+          <meta name="description" content="A comprehensive guide to selecting the best low-maintenance fish for your first aquarium, covering their needs, compatibility, and easy care tips." />
+          -->
+          <img
+            src="https://placehold.co/800x450/90EE90/FFFFFF?text=Beginner+Fish+Detail"
+            alt="Beginner Friendly Fish Detail"
+            class="w-full h-64 object-cover rounded-md mb-6"
+            onerror="this.onerror=null;this.src='https://placehold.co/800x450/a8dadc/1d3557?text=Image+Not+Available';"
+          />
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Top 5 Low-Maintenance Fish for Beginners
+          </h2>
+          <p class="text-sm text-gray-600 mb-6">
+            <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> July 5, 2025 |
+            <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+          </p>
+          <div class="prose max-w-none text-gray-700">
+            <p>
+              Starting an aquarium is an exciting hobby, but it can also feel overwhelming with so many choices. For beginners, selecting hardy and forgiving fish species is key to a positive first experience. Here are our top 5 recommendations for low-maintenance fish that are perfect for your first tank.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">1. Guppies (Poecilia reticulata)</h3>
+            <p>
+              Known for their vibrant colors and flowing fins, guppies are livebearers, meaning they give birth to live young. They are incredibly adaptable to various water conditions and are generally peaceful.
+            </p>
+            <ul>
+              <li>**Care Level:** Very Easy</li>
+              <li>**Size:** 1.5-2.5 inches</li>
+              <li>**Temperament:** Peaceful</li>
+              <li>**Tank Size:** 10 gallons+</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">2. Platies (Xiphophorus maculatus)</h3>
+            <p>
+              Similar to guppies, platies are also livebearers and come in a dazzling array of colors and patterns. They are active, peaceful, and make a great addition to a community tank.
+            </p>
+            <ul>
+              <li>**Care Level:** Easy</li>
+              <li>**Size:** 2-3 inches</li>
+              <li>**Temperament:** Peaceful</li>
+              <li>**Tank Size:** 10 gallons+</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">3. Zebra Danios (Danio rerio)</h3>
+            <p>
+              These active, striped fish are known for their hardiness and schooling behavior. They are excellent for beginners as they tolerate a wide range of water parameters and are very active, adding life to your tank.
+            </p>
+            <ul>
+              <li>**Care Level:** Easy</li>
+              <li>**Size:** 2 inches</li>
+              <li>**Temperament:** Peaceful, active schooling fish</li>
+              <li>**Tank Size:** 10 gallons+ (best in groups of 6+)</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">4. Corydoras Catfish (Corydoras spp.)</h3>
+            <p>
+              Often called "Corys," these bottom-dwelling catfish are peaceful scavengers that help keep the substrate clean. They are schooling fish and should be kept in groups of at least three.
+            </p>
+            <ul>
+              <li>**Care Level:** Easy</li>
+              <li>**Size:** 1-3 inches (varies by species)</li>
+              <li>**Temperament:** Peaceful, schooling</li>
+              <li>**Tank Size:** 10 gallons+ (depending on species and group size)</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">5. Betta Fish (Betta splendens)</h3>
+            <p>
+              While bettas are beautiful and popular, they require specific care. They are often misrepresented as needing very small tanks. A single male betta thrives in a minimum of a 5-gallon tank with a heater and filter. They are stunning centerpiece fish.
+            </p>
+            <ul>
+              <li>**Care Level:** Moderate (due to specific tank requirements)</li>
+              <li>**Size:** 2.5-3 inches</li>
+              <li>**Temperament:** Can be aggressive towards other male bettas; generally peaceful with compatible tank mates.</li>
+              <li>**Tank Size:** 5 gallons+ (for a single male)</li>
+            </ul>
+            <p>
+              With these resilient and beautiful fish, your first aquarium experience is sure to be a rewarding one! Remember to research the specific needs of any fish before bringing them home.
+            </p>
+          </div>
+        </div>
+
+        <!-- Content for Blog Post 3 -->
+        <div id="blog-post-3" class="blog-detail-content hidden">
+          <!-- Conceptual Meta Tags for this specific blog post -->
+          <!--
+          <meta name="title" content="Solving Common Pond Algae Problems - Full Article" />
+          <meta name="description" content="A detailed guide to identifying and eliminating various types of algae in outdoor ponds, including green water, string algae, and blanket weed." />
+          -->
+          <img
+            src="https://placehold.co/800x450/8B4513/FFFFFF?text=Pond+Algae+Detail"
+            alt="Pond Algae Problem Detail"
+            class="w-full h-64 object-cover rounded-md mb-6"
+            onerror="this.onerror=null;this.src='https://placehold.co/800x450/a8dadc/1d3557?text=Image+Not+Available';"
+          />
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Solving Common Pond Algae Problems
+          </h2>
+          <p class="text-sm text-gray-600 mb-6">
+            <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> June 28, 2025 |
+            <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+          </p>
+          <div class="prose max-w-none text-gray-700">
+            <p>
+              Algae is a natural part of any aquatic ecosystem, but when it takes over your pond, it can quickly become an unsightly nuisance. From green water to stringy masses, algae can block sunlight, deplete oxygen, and generally make your pond less enjoyable. Understanding the different types of algae and how to combat them is key to a healthy, clear pond.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Common Types of Pond Algae</h3>
+            <ul>
+              <li>**Green Water (Suspended Algae):** This makes your pond water look like pea soup. It's caused by microscopic algae suspended throughout the water column, often due to excess nutrients and sunlight.</li>
+              <li>**String Algae (Filamentous Algae):** Also known as blanket weed, this forms long, hair-like strands that can quickly cover surfaces and even choke out plants. It thrives on nutrients and sunlight.</li>
+              <li>**Slime Algae (Cyanobacteria):** This can appear as a dark, slimy mat, often blue-green or black. It's not true algae but a type of bacteria that can be difficult to remove and sometimes toxic.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Strategies for Algae Control</h3>
+            <p>
+              A multi-faceted approach is usually most effective for long-term algae control.
+            </p>
+            <h4>1. Nutrient Reduction:</h4>
+            <ul>
+              <li>**Reduce Fish Feeding:** Overfeeding leads to excess waste, which becomes algae food. Feed only what your fish can consume in a few minutes.</li>
+              <li>**Remove Debris:** Decaying leaves, uneaten food, and other organic matter release nutrients. Regularly skim leaves and clean out sludge from the bottom of your pond.</li>
+              <li>**Proper Filtration:** Ensure you have adequate mechanical and biological filtration to process waste and remove excess nutrients.</li>
+            </ul>
+            <h4>2. Sunlight Management:</h4>
+            <ul>
+              <li>**Add Aquatic Plants:** Water lilies and other floating plants provide shade, reducing the amount of sunlight reaching submerged algae. They also compete with algae for nutrients.</li>
+              <li>**Consider a Shade Structure:** For ponds in full sun, a shade sail or pergola can help reduce direct sunlight.</li>
+            </ul>
+            <h4>3. Water Quality Management:</h4>
+            <ul>
+              <li>**Regular Water Changes:** While less frequent than in aquariums, partial water changes can help dilute nutrient levels.</li>
+              <li>**Beneficial Bacteria:** Introduce beneficial bacteria supplements to boost your biological filter and outcompete algae for nutrients.</li>
+            </ul>
+            <h4>4. Mechanical Removal:</h4>
+            <ul>
+              <li>**Manual Removal:** For string algae, physically remove as much as you can with a net or rake.</li>
+              <li>**UV Sterilizers:** For green water, a UV sterilizer can be highly effective at clumping suspended algae cells, allowing your filter to remove them.</li>
+            </ul>
+            <p>
+              By combining these methods, you can effectively manage algae and maintain a clear, healthy, and beautiful pond ecosystem.
+            </p>
+          </div>
+        </div>
+
+        <!-- Content for Blog Post 4 -->
+        <div id="blog-post-4" class="blog-detail-content hidden">
+          <!-- Conceptual Meta Tags for this specific blog post -->
+          <!--
+          <meta name="title" content="Aquascaping 101: Designing Your Underwater Paradise - Full Article" />
+          <meta name="description" content="Learn the foundational principles of aquascaping, including layout techniques, plant selection, and hardscape integration, to create stunning underwater landscapes." />
+          -->
+          <img
+            src="https://placehold.co/800x450/4682B4/FFFFFF?text=Aquascaping+Design+Detail"
+            alt="Aquascaping Design Detail"
+            class="w-full h-64 object-cover rounded-md mb-6"
+            onerror="this.onerror=null;this.src='https://placehold.co/800x450/a8dadc/1d3557?text=Image+Not+Available';"
+          />
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Aquascaping 101: Designing Your Underwater Paradise
+          </h2>
+          <p class="text-sm text-gray-600 mb-6">
+            <i data-lucide="calendar" class="inline-block mr-1" data-lucide-size="16"></i> June 20, 2025 |
+            <i data-lucide="user" class="inline-block mr-1" data-lucide-size="16"></i> Tank Doc Team
+          </p>
+          <div class="prose max-w-none text-gray-700">
+            <p>
+              Aquascaping is the art of arranging aquatic plants, rocks, wood, and other elements within an aquarium to create an aesthetically pleasing underwater landscape. It's a blend of horticulture, design, and a deep understanding of aquatic ecosystems. If you're looking to elevate your aquarium beyond just a fish tank, aquascaping is your next adventure!
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Key Principles of Aquascaping</h3>
+            <p>
+              While creativity is boundless, successful aquascapes often adhere to certain design principles:
+            </p>
+            <ul>
+              <li>**Golden Ratio/Rule of Thirds:** Position focal points (e.g., a striking piece of driftwood or a vibrant plant cluster) off-center, at the intersections of imaginary lines dividing your tank into thirds.</li>
+              <li>**Balance:** Create visual equilibrium. This doesn't necessarily mean symmetry; asymmetrical balance can be very dynamic.</li>
+              <li>**Perspective:** Use larger elements in the foreground and smaller ones in the background to create a sense of depth. Sloping the substrate from front to back also enhances this.</li>
+              <li>**Flow/Movement:** Arrange elements to guide the viewer's eye through the scape, creating a natural sense of motion.</li>
+              <li>**Contrast:** Vary textures, colors, and plant shapes to add interest and prevent a monotonous look.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Hardscape First</h3>
+            <p>
+              Your hardscape (rocks and driftwood) forms the backbone of your aquascape.
+            </p>
+            <ul>
+              <li>**Rocks:** Choose rocks with interesting textures and shapes. Seiryu stone, Dragon stone, and lava rock are popular choices. Arrange them to create natural-looking formations, perhaps mimicking mountains or cliffs.</li>
+              <li>**Wood:** Spiderwood, Manzanita, and Malaysian driftwood are common. Soak them first to prevent tannins from staining the water and to make them sink. Arrange them to create branches, roots, or even entire tree-like structures.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Plant Selection & Placement</h3>
+            <p>
+              Plants are the living elements that bring your aquascape to life. Consider their growth habits, light requirements, and how they will fit into your design.
+            </p>
+            <ul>
+              <li>**Foreground Plants:** Low-growing plants (e.g., Dwarf Hairgrass, Monte Carlo) create a carpet effect.</li>
+              <li>**Midground Plants:** Medium-height plants (e.g., Cryptocoryne, Anubias) fill in the space between the foreground and background.</li>
+              <li>**Background Plants:** Tall plants (e.g., Rotala, Vallisneria) create a lush backdrop and hide equipment.</li>
+              <li>**Focal Point Plants:** Unique or particularly vibrant plants can serve as a focal point.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Substrate and Equipment</h3>
+            <p>
+              Choose a nutrient-rich substrate for planted tanks. Conceal heaters, filters, and CO2 diffusers as much as possible behind hardscape or plants to maintain the natural aesthetic.
+            </p>
+            <p>
+              Aquascaping is a journey of learning and creativity. Don't be afraid to experiment, and enjoy the process of crafting your own unique underwater paradise!
+            </p>
+          </div>
+        </div>
+
+        <button
+          id="back-to-blog-list-btn"
+          class="mt-8 bg-gray-200 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-md mx-auto block"
+        >
+          Back to Blog
         </button>
       </div>
     </div>
@@ -980,32 +1455,159 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
-        // Update footer year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Update footer year for home page
+        document.getElementById('current-year-home').textContent = new Date().getFullYear();
 
         // Page navigation handlers
         const homePage = document.getElementById('home-page');
         const privacyPage = document.getElementById('privacy-page');
-        const privacyBtnHeader = document.getElementById('privacy-policy-btn-header');
-        const privacyBtnFooter = document.getElementById('privacy-policy-btn-footer');
-        const backToHomeBtn = document.getElementById('back-to-home-btn');
+        const blogPage = document.getElementById('blog-page');
+        const blogDetailPage = document.getElementById('blog-detail-page');
 
+        const privacyBtnHeaderDesktop = document.getElementById('privacy-policy-btn-header-desktop');
+        const privacyBtnFooterHome = document.getElementById('privacy-policy-btn-footer-home');
+        const backToHomeBtnPrivacy = document.getElementById('back-to-home-btn-privacy');
+
+        const blogBtnHeaderDesktop = document.getElementById('blog-btn-header-desktop');
+        const backToHomeBtnBlog = document.getElementById('back-to-home-btn-blog');
+        const backToBlogListBtn = document.getElementById('back-to-blog-list-btn');
+
+        // Mobile menu elements
+        const hamburgerMenuBtn = document.getElementById('hamburger-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const blogBtnMobile = document.getElementById('blog-btn-mobile');
+        const privacyBtnMobile = document.getElementById('privacy-policy-btn-mobile');
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu-overlay nav a');
+
+
+        // Function to show a specific page and hide others
         function showPage(pageId) {
           homePage.classList.remove('active');
           privacyPage.classList.remove('active');
+          blogPage.classList.remove('active');
+          blogDetailPage.classList.remove('active');
+
           document.getElementById(pageId).classList.add('active');
-          window.scrollTo(0, 0);
+          window.scrollTo(0, 0); // Scroll to top of the page
         }
 
-        if (privacyBtnHeader) {
-          privacyBtnHeader.addEventListener('click', () => showPage('privacy-page'));
+        // Function to show a specific blog detail and hide others
+        function showBlogDetail(postId) {
+          // Hide all blog detail content first
+          document.querySelectorAll('.blog-detail-content').forEach(content => {
+            content.classList.add('hidden');
+          });
+
+          // Show the requested blog detail content
+          const requestedPost = document.getElementById(postId);
+          if (requestedPost) {
+            requestedPost.classList.remove('hidden');
+          }
+
+          // Then show the blog detail page wrapper
+          showPage('blog-detail-page');
         }
-        if (privacyBtnFooter) {
-          privacyBtnFooter.addEventListener('click', () => showPage('privacy-page'));
+
+        // Function to open mobile menu
+        function openMobileMenu() {
+          mobileMenuOverlay.classList.add('open');
         }
-        if (backToHomeBtn) {
-          backToHomeBtn.addEventListener('click', () => showPage('home-page'));
+
+        // Function to close mobile menu
+        function closeMobileMenu() {
+          mobileMenuOverlay.classList.remove('open');
         }
+
+        // Event listeners for desktop navigation
+        if (privacyBtnHeaderDesktop) {
+          privacyBtnHeaderDesktop.addEventListener('click', () => showPage('privacy-page'));
+        }
+        if (privacyBtnFooterHome) {
+          privacyBtnFooterHome.addEventListener('click', () => showPage('privacy-page'));
+        }
+        if (backToHomeBtnPrivacy) {
+          backToHomeBtnPrivacy.addEventListener('click', () => showPage('home-page'));
+        }
+
+        if (blogBtnHeaderDesktop) {
+          blogBtnHeaderDesktop.addEventListener('click', () => showPage('blog-page'));
+        }
+        if (backToHomeBtnBlog) {
+          backToHomeBtnBlog.addEventListener('click', () => showPage('home-page'));
+        }
+        if (backToBlogListBtn) {
+          backToBlogListBtn.addEventListener('click', () => showPage('blog-page'));
+        }
+
+        // Event listeners for mobile menu
+        if (hamburgerMenuBtn) {
+          hamburgerMenuBtn.addEventListener('click', openMobileMenu);
+        }
+        if (closeMenuBtn) {
+          closeMenuBtn.addEventListener('click', closeMobileMenu);
+        }
+        if (blogBtnMobile) {
+            blogBtnMobile.addEventListener('click', () => {
+                showPage('blog-page');
+                closeMobileMenu();
+            });
+        }
+        if (privacyBtnMobile) {
+            privacyBtnMobile.addEventListener('click', () => {
+                showPage('privacy-page');
+                closeMobileMenu();
+            });
+        }
+
+        // Adjust home page navigation links to use showPage function for desktop
+        document.querySelectorAll('header nav.hidden.md\\:flex a').forEach(link => {
+            if (link.getAttribute('href').startsWith('#')) {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    showPage('home-page');
+                    setTimeout(() => {
+                        const targetId = link.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                });
+            }
+        });
+
+        // Adjust mobile navigation links to use showPage function and close menu
+        mobileNavLinks.forEach(link => {
+            if (link.getAttribute('href').startsWith('#')) {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    showPage('home-page');
+                    closeMobileMenu();
+                    setTimeout(() => {
+                        const targetId = link.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                });
+            }
+        });
+
+
+        // Event listeners for "Read More" links on the blog list page
+        document.querySelectorAll('#blog-page article .read-more-link').forEach(link => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+            // Get the data-post-id attribute from the parent article
+            const postId = event.target.closest('article').dataset.postId;
+            if (postId) {
+                showBlogDetail(postId);
+            }
+          });
+        });
+
 
         // Lead form submission handler
         const leadForm = document.getElementById('lead-form-element');
