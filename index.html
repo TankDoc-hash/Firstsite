@@ -83,6 +83,47 @@
       .page-content.active {
         display: block;
       }
+
+       a {
+            color: var(--brand-primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--brand-orange);
+            text-decoration: underline;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: var(--brand-primary-blue);
+            color: var(--brand-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Full rounded */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card styling for blog posts */
+        .blog-card {
+            background-color: var(--brand-white);
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+            padding: 1.5rem; /* p-6 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-lg */
+        }
     </style>
   </head>
   <body>
@@ -975,7 +1016,127 @@
         </button>
       </div>
     </div>
+<main class="flex-grow max-w-7xl mx-auto py-12 px-6 md:px-12">
+        <h2 class="text-5xl font-extrabold text-center mb-12" style="color: var(--brand-primary-blue);">
+            Latest Articles
+        </h2>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1 -->
+            <article class="blog-card">
+                <img
+                    src="https://placehold.co/600x400/a8dadc/1d3557?text=Blog+Image+1"
+                    alt="Abstract image for blog post"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="text-2xl font-bold mb-2" style="color: var(--brand-secondary-blue);">
+                    The Art of Minimalist Design
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    By <span class="font-semibold">Jane Doe</span> on <time datetime="2024-07-20">July 20, 2024</time>
+                </p>
+                <p class="text-gray-700 mb-6">
+                    Discover how minimalist principles can transform your space and mind. Less is often more, and this article explores the beauty and functionality of minimalist aesthetics in everyday life.
+                </p>
+                <a href="#" class="btn-primary">Read More</a>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-card">
+                <img
+                    src="https://placehold.co/600x400/a8dadc/1d3557?text=Blog+Image+2"
+                    alt="Nature image for blog post"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="text-2xl font-bold mb-2" style="color: var(--brand-secondary-blue);">
+                    Exploring the Wilderness: A Hiking Guide
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    By <span class="font-semibold">John Smith</span> on <time datetime="2024-07-18">July 18, 2024</time>
+                </p>
+                <p class="text-gray-700 mb-6">
+                    Embark on an adventure with our comprehensive guide to hiking the most breathtaking trails. From preparation tips to essential gear, we've got you covered.
+                </p>
+                <a href="#" class="btn-primary">Read More</a>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-card">
+                <img
+                    src="https://placehold.co/600x400/a8dadc/1d3557?text=Blog+Image+3"
+                    alt="Food image for blog post"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="text-2xl font-bold mb-2" style="color: var(--brand-secondary-blue);">
+                    Healthy Eating: Simple Recipes for Busy Lives
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    By <span class="font-semibold">Emily White</span> on <time datetime="2024-07-15">July 15, 2024</time>
+                </p>
+                <p class="text-gray-700 mb-6">
+                    Maintaining a healthy diet doesn't have to be complicated. Discover quick and delicious recipes perfect for your busy schedule, without compromising on nutrition.
+                </p>
+                <a href="#" class="btn-primary">Read More</a>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="blog-card">
+                <img
+                    src="https://placehold.co/600x400/a8dadc/1d3557?text=Blog+Image+4"
+                    alt="Tech image for blog post"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="text-2xl font-bold mb-2" style="color: var(--brand-secondary-blue);">
+                    The Future of AI: What's Next?
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    By <span class="font-semibold">David Chen</span> on <time datetime="2024-07-12">July 12, 2024</time>
+                </p>
+                <p class="text-gray-700 mb-6">
+                    Artificial Intelligence is rapidly evolving. This article delves into the upcoming trends and potential impacts of AI on society, technology, and daily life.
+                </p>
+                <a href="#" class="btn-primary">Read More</a>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article class="blog-card">
+                <img
+                    src="https://placehold.co/600x400/a8dadc/1d3557?text=Blog+Image+5"
+                    alt="Travel image for blog post"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="text-2xl font-bold mb-2" style="color: var(--brand-secondary-blue);">
+                    Budget Travel: See the World on a Shoestring
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    By <span class="font-semibold">Sophia Lee</span> on <time datetime="2024-07-10">July 10, 2024</time>
+                </p>
+                <p class="text-gray-700 mb-6">
+                    Dreaming of globetrotting without breaking the bank? Our guide offers practical tips, tricks, and destinations for unforgettable adventures on a budget.
+                </p>
+                <a href="#" class="btn-primary">Read More</a>
+            </article>
+
+            <!-- Blog Post 6 -->
+            <article class="blog-card">
+                <img
+                    src="https://placehold.co/600x400/a8dadc/1d3557?text=Blog+Image+6"
+                    alt="Creative writing image for blog post"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="text-2xl font-bold mb-2" style="color: var(--brand-secondary-blue);">
+                    Unleashing Creativity: Tips for Aspiring Writers
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    By <span class="font-semibold">Michael Brown</span> on <time datetime="2024-07-07">July 07, 2024</time>
+                </p>
+                <p class="text-gray-700 mb-6">
+                    Struggling with writer's block or just starting your writing journey? Explore techniques and exercises to ignite your imagination and hone your craft.
+                </p>
+                <a href="#" class="btn-primary">Read More</a>
+            </article>
+        </div>
+    </main>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         // Initialize Lucide icons
