@@ -168,6 +168,20 @@
       }
       /* Screen reader only utility */
       .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+      /* Smooth scroll for anchor navigation */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Offset scroll target for sticky header */
+      section[id] {
+        scroll-margin-top: 90px;
+      }
+      /* Active nav link highlight */
+      .nav-link.active-link {
+        color: var(--brand-primary-blue);
+        border-bottom: 2px solid var(--brand-orange);
+        padding-bottom: 2px;
+      }
       /* Define brand colors as CSS variables */
       :root {
         --brand-primary-blue: #19458f; /* Darker blue */
@@ -887,6 +901,30 @@
 
         // Update footer year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Active nav link on scroll
+        const navLinks = document.querySelectorAll('nav a.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveNav() {
+          const scrollPos = window.scrollY + 120;
+          sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            if (scrollPos >= top && scrollPos < top + height) {
+              navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href') === '#' + id) {
+                  link.classList.add('active-link');
+                }
+              });
+            }
+          });
+        }
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
 
         // Lead form submission handler
         const leadForm = document.getElementById('lead-form-element');
