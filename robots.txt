@@ -1,0 +1,20 @@
+# Tank Doc - Aquarium Cleaning Service Bangalore
+# https://tankdoc.in
+
+User-agent: *
+Allow: /
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Sitemap: https://tankdoc.in/sitemap.xml
